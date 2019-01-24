@@ -1,0 +1,9 @@
+#!/bin/bash
+#     mkdir -p $HOME/.local/bin && cd $HOME/.local/bin && wget https://raw.githubusercontent.com/freddii/some-scripts/master/diary && chmod +x diary
+#     based on https://github.com/braindef/installation-scripts/blob/master/other/tagebuchOneLiner.txt
+
+if [ -f ~/.tagebuch.txt ]; then
+    echo " " >>~/.tagebuch.txt && echo " " >>~/.tagebuch.txt
+fi
+
+echo "---------------------------" >>~/.tagebuch.txt && date >>~/.tagebuch.txt && echo "---------------------------" >>~/.tagebuch.txt && nano +10000000 ~/.tagebuch.txt
