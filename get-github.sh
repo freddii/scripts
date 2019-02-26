@@ -12,11 +12,11 @@ mkdir "$tmp"
 cd "$tmp"
 
 user=$1
-
-wget "https://github.com/metalx1000?tab=repositories" -q -O-|\
-    grep "href"|\
-    grep "$user"|\
-    grep "Forks"|\
+#user=freddii
+wget "https://github.com/$user?tab=repositories" -q -O-|\
+    grep "href" -o |\
+    grep "$user" -o |\
+    grep "Forks" -o |\
     cut -d\" -f4|\
     cut -d\/ -f3|while read line;
     do
