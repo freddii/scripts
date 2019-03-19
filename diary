@@ -1,4 +1,18 @@
 #!/bin/bash
+###################################################
+# Written for  Gnu-Linux O.S.x64                  #
+#Git Hub Page : https://github.com/freddii        #
+#                                                 #
+#                                                 # 
+#  __              _     _ _ _                    #
+# / _|_ __ ___  __| | __| (_|_)                   #
+#| |_| '__/ _ \/ _` |/ _` | | |                   #
+#|  _| | |  __/ (_| | (_| | | |                   #
+#|_| |_|  \___|\__,_|\__,_|_|_|                   #
+#                                                 #
+#                                                 #
+#                                                 # 
+###################################################
 #     mkdir -p $HOME/.local/bin && cd $HOME/.local/bin && wget https://raw.githubusercontent.com/freddii/some-scripts/master/diary && chmod +x diary
 #     based on https://github.com/braindef/installation-scripts/blob/master/other/tagebuchOneLiner.txt
 
