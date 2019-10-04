@@ -1,10 +1,13 @@
 #!/bin/bash
-#TODO: check params
+#Usage:
+#git-create-repo.sh GithubUsername NewReponame
 user=$1
 repo_name=$2
 
 git init
+if [ ! -f "$PWD/README.md" ]; then
 echo "# $repo_name" > README.md
+fi
 git add .
 git commit -m "First commit"
 
