@@ -90,7 +90,7 @@ else
 #      /usr/bin/mutt -s "${SUBJECT}" -a "${DIR}${FILE}" -- ${MAIL} < /dev/null;
 #    fi
 	/usr/bin/notify-send --icon=${DIR}${FILE} "new dilbert comic"
-	#xdg-open ${DIR}${FILE}
+	xdg-open ${DIR}${FILE}
   else
     error "Download failed."
   fi
