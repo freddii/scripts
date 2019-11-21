@@ -17,7 +17,8 @@
 
 # Local directory to store the comic strip
 #DIR=/var/www/html/comics/Dilbert_DE/
-DIR=$HOME/Documents/Dilbert_DE/
+#DIR=$HOME/Documents/Dilbert_DE/
+DIR=/tmp/
 
 # Who will be informed in case of new comic strip is available
 # MAIL="georg@home.lan"
