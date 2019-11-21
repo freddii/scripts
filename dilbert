@@ -79,6 +79,7 @@ fi
 if [ -f "${DIR}${FILE}" ] ; then
   log "No new comic strip found."
   /usr/bin/notify-send --icon=${DIR}${FILE} "No new comic strip found."
+  xdg-open ${DIR}${FILE}
   exit 0
 else
   log "Downloading new comic strip from the web server."
