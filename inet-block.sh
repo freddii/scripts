@@ -4,6 +4,9 @@
 #https://www.gtkdb.de/index_7_1235.html
 	#local NET_MASK1=$(ip r l | grep -v "default" | grep "proto kernel" | awk '{print $1}')
 	#echo $NET_MASK1
+	#sudo ufw reset
+	#sudo ufw disable
+	#sudo apt-get purge ufw gufw -y
 	dpkg -l | grep -qw iptables || sudo apt-get install iptables -y
 	dpkg -l | grep -qw iptables-persistent || sudo apt-get install iptables-persistent -y
 	#sudo iptables -A INPUT -s $NET_MASK1 -j ACCEPT
@@ -11,6 +14,7 @@
 	#sudo systemctl status iptables # ip6tables
 	#sudo iptables -L
 	sudo iptables --flush
+	sudo iptables --zero
  	sudo iptables --delete-chain
 	sudo iptables --policy INPUT DROP
 	sudo iptables --policy OUTPUT DROP
@@ -28,6 +32,7 @@
 	#
 	#sudo ip6tables -L
 	sudo ip6tables --flush
+	sudo ip6tables --zero
 	sudo ip6tables --delete-chain
 	sudo ip6tables --policy INPUT DROP
 	sudo ip6tables --policy OUTPUT DROP

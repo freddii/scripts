@@ -2,6 +2,7 @@
 
 	#sudo iptables -L
 	sudo iptables --flush
+	sudo iptables --zero
 	sudo iptables --delete-chain
 	sudo iptables --policy INPUT ACCEPT
 	sudo iptables --policy OUTPUT ACCEPT
@@ -14,6 +15,7 @@
 	#
 	#sudo ip6tables -L
 	sudo ip6tables --flush
+	sudo ip6tables --zero
 	sudo ip6tables --delete-chain
 	sudo ip6tables --policy INPUT ACCEPT
 	sudo ip6tables --policy OUTPUT ACCEPT
