@@ -4,7 +4,7 @@
 	sudo iptables --flush
 	sudo iptables --zero
 	sudo iptables --delete-chain
-	sudo iptables --policy INPUT DROP
+	sudo iptables --policy INPUT ACCEPT
 	sudo iptables --policy OUTPUT ACCEPT
 	sudo iptables --policy FORWARD ACCEPT
 #sudo iptables -A OUTPUT -p tcp -m string --string "www.amazonaws.com" --algo kmp -j REJECT
@@ -17,7 +17,7 @@
 	sudo ip6tables --flush
 	sudo ip6tables --zero
 	sudo ip6tables --delete-chain
-	sudo ip6tables --policy INPUT DROP
+	sudo ip6tables --policy INPUT ACCEPT
 	sudo ip6tables --policy OUTPUT ACCEPT
 	sudo ip6tables --policy FORWARD ACCEPT
 	#sudo ip6tables-save --file /etc/iptables/rules.v6 #to be safe after reboot
