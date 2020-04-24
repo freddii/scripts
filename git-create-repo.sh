@@ -1,22 +1,22 @@
 #!/bin/bash
 #Usage:
 #git-create-repo.sh GithubUsername NewReponame
-github_username=""
-github_token=""
-
+user=""  #github username
+github_token="" #github token
 repo_name=$1
 
-if [ -z "$github_username" ]
+if [ -z "$user" ]
 then
-      echo "variable \$github_username is empty, please set variable in this script first."
+      echo "variable \$user is empty, please set variable for github-username in this script first."
       exit 1
-#else
-#      echo "\$github_username is NOT empty"
 fi
 
 if [ -z "$github_token" ]
 then
-      echo "variable \$github_token is empty, please set variable in this script first."
+      echo "variable \$github_token is empty, please set variable in this script first. 
+How to create a personal access token:
+with scopes:  write:packages
+https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line"
       exit 1
 #else
 #      echo "\$github_token is NOT empty"
@@ -33,16 +33,10 @@ git commit -m "First commit"
 #curl -u $user https://api.github.com/user/repos -d $param
 #$pw
 #
-curl -i -H "Authorization: token $git_token" \
-    -d '{ \
-        "name": $repo_name, \
-        "auto_init": true, \
-        "private": true, \
-        "gitignore_template": "nanoc" \
-      }' \
-    https://api.github.com/user/repos
+#curl -H 'Authorization: token '$github_token https://api.github.com/user/repos -d $param
+curl -H 'Authorization: token '$github_token https://api.github.com/user/repos -d '{"name": "'$repo_name'", "private": true}'
 #
-git remote add origin "https://github.com/$github_username/$repo_name.git"
+git remote add origin "https://github.com/$user/$repo_name.git"
 git push origin master
 
 
