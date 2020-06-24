@@ -1,7 +1,7 @@
 #!/bin/bash
 #Usage:
 #git-create-repo.sh GithubUsername NewReponame
-user=""  #github username
+user=$(git config user.name)  #github username
 github_token="" #github token
 repo_name=$1
 
@@ -26,8 +26,8 @@ git init
 if [ ! -f "$PWD/README.md" ]; then
 echo "# $repo_name" > README.md
 fi
-git add .
-git commit -m "First commit"
+#git add .
+#git commit -m "First commit"
 #
 #param="{\"name\":\"$repo_name\"}"
 #curl -u $user https://api.github.com/user/repos -d $param
