@@ -6,18 +6,21 @@
 
 script_path="$(dirname "$0")"
 script_name="$(basename "$0")"
-
-stream_url="$(kdialog --title "Live-Tv" --radiolist "Sender wählen und OK drücken!" \
+#response=$(zenity --height=640 --width=320 --text 'a simple appimages download gui' --list --checklist \
+ #  --title='get-appimages-gui' --column=Selection --column=Task \
+#stream_url="$(zenity --title "Live-Tv" --radiolist "Sender wählen und OK drücken!" \
+stream_url=$(dialog --stdout --backtitle freddii --title get-appimages-gui \
+--checklist "a simple appimages download gui" 0 0 0 \
 "https://derste247livede.akamaized.net/hls/live/658317/daserste_de/master.m3u8"   "ARD-Das-Erste"                  off \
 "https://brlive-lh.akamaihd.net/i/bralpha_germany@119899/master.m3u8"             "ARD-alpha"                      off \
 "https://onelivestream-lh.akamaihd.net/i/one_livestream@568814/master.m3u8"       "ARD-one"                        off \
 "https://tagesschau-lh.akamaihd.net/i/tagesschau_3@66339/master.m3u8"             "ARD-Tagesschau24"               off \
-"https://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8             "ARD-Tagesschau24-International" off \
+"https://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"             "ARD-Tagesschau24-International" off \
 "https://artelive-lh.akamaihd.net/i/artelive_de@393591/master.m3u8"               "Arte-DE"                        off \
 "https://artelive-lh.akamaihd.net/i/artelive_fr@344805/master.m3u8"               "Arte-FR"                        off \
 "https://brlive-lh.akamaihd.net/i/bfsnord_germany@119898/master.m3u8"             "BR-Nord"                        off \
 "https://brlive-lh.akamaihd.net/i/bfssued_germany@119890/master.m3u8"             "BR-Süd"                         off \
-"https://brlive-lh.akamaihd.net/i/bfssued_worldwide@119891/master.m3u8            "BR-Süd-International"           off \
+"https://brlive-lh.akamaihd.net/i/bfssued_worldwide@119891/master.m3u8"            "BR-Süd-International"           off \
 "https://dwstream72-lh.akamaihd.net/i/dwstream72_live@123556/master.m3u8"         "DW"                             off \
 "https://dwstream52-lh.akamaihd.net/i/dwstream52_live@500528/master.m3u8"         "DW-Plus"                        off \
 "https://dwstream1-lh.akamaihd.net/i/dwstream1_live@120422/master.m3u8"           "DW-English"                     off \
@@ -47,7 +50,7 @@ stream_url="$(kdialog --title "Live-Tv" --radiolist "Sender wählen und OK drüc
 "https://wdr_fs-lh.akamaihd.net/i/wdrfs_weltweit@112033/master.m3u8"              "WDR-International"              off \
 "https://zdf-hls-15.akamaized.net/hls/live/2016498/de/high/master.m3u8"           "ZDF"                            off \
 "https://zdf-hls-17.akamaized.net/hls/live/2016500/de/high/master.m3u8"           "ZDF info"                       off \
-"https://zdf-hls-16.akamaized.net/hls/live/2016499/de/high/master.m3u8"           "ZDF neo"                        off)"
+"https://zdf-hls-16.akamaized.net/hls/live/2016499/de/high/master.m3u8"           "ZDF neo"                        off)
 if(($? == 0)); then
 	vlc "${stream_url}"
 	exec "${script_path}/${script_name}"
