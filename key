@@ -1,0 +1,21 @@
+#!/bin/sh
+#https://codeberg.org/evotron/dotfiles/src/branch/main/bin/.local/bin/key
+start() {
+  [ -x /usr/bin/screenkey ] &&
+    notify-send "Screenkey" "Started recording keys" \
+      --icon=blueman-keyboard
+    screenkey -s small -p bottom -f "Iosevka Custom" \
+      --bg-color "#0f111a" --font-color "#80859d"
+}
+
+stop() {
+  pgrep -x "screenkey" > /dev/null && 
+    notify-send "Screenkey" "Stopped recording keys" \
+    --icon=blueman-keyboard && 
+      pkill -f screenkey
+}
+
+case "$1" in
+  "start") start ;;
+  "stop") stop ;;
+esac
