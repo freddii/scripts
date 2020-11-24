@@ -16,19 +16,19 @@ rm /tmp/speech.txt
 echo "es ist" >>/tmp/speech.txt
 (date +"%A") >>/tmp/speech.txt
 echo "der" >>/tmp/speech.txt
-if [ $day_of_month = 1 ];
+if [ "$day_of_month" = 1 ];
     then
         STRING="erste"
-elif [ $day_of_month = 3 ];
+elif [ "$day_of_month" = 3 ];
     then
         STRING="dritte"
-elif [ $day_of_month = 7 ];
+elif [ "$day_of_month" = 7 ];
     then
         STRING="siebte"
 else
     STRING=$day_of_month"te"
 fi
-echo $STRING >>/tmp/speech.txt
+echo "$STRING" >>/tmp/speech.txt
 (date +"%B") >>/tmp/speech.txt
 echo " " >>/tmp/speech.txt
 echo Uhrzeit: >>/tmp/speech.txt

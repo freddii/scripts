@@ -77,11 +77,11 @@ echo "$HOST" > /etc/hostname
 # Setup user
 #
 echo "Setup user $USER"
-useradd --create-home --shell /bin/bash $USER
-usermod -aG sudo $USER
+useradd --create-home --shell /bin/bash "$USER"
+usermod -aG sudo "$USER"
 
 echo "Setup password for $USER."
-passwd $USER
+passwd "$USER"
 
 
 #
@@ -150,8 +150,8 @@ echo "Create symlinks for .bashrc"
 rm /etc/bash.bashrc
 ln -s /mnt/data/all/bashrc/etc/bash.bashrc /etc/bash.bashrc
 # $USER bashrc
-rm /home/$USER/.bashrc
-ln -s /mnt/data/all/bashrc/bashrc /home/$USER/.bashrc
+rm /home/"$USER"/.bashrc
+ln -s /mnt/data/all/bashrc/bashrc /home/"$USER"/.bashrc
 
 # If podman user exists, also replace their .bashrc
 if id "podman" &>/dev/null; then
