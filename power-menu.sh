@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#https://codeberg.org/ersen/bin
 usage() {
     printf "Usage: %s [OPTION]...
     Select and perform actions about power management
