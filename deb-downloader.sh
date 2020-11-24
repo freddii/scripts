@@ -97,10 +97,10 @@ function packageDepends {
 
   IFS=',' read -ra ADDR <<< "$DEPENDS"
   for i in "${ADDR[@]}"; do
-    PKG=$(echo $i | cut -d" " -f1 | cut -d":" -f1)
+    PKG=$(echo "$i" | cut -d" " -f1 | cut -d":" -f1)
     if [[ $DOWNLOAD_PACKAGES != *"$PKG"* ]]; then
       DOWNLOAD_PACKAGES="$DOWNLOAD_PACKAGES $PKG"
-      packageDepends $PKG
+      packageDepends "$PKG"
     fi
   done
 }
@@ -117,18 +117,18 @@ function packageDownload {
     [ ! -z "$FILENAME" ] && break
   done
 
-  if [ -z $FILENAME ]; then
+  if [ -z "$FILENAME" ]; then
     echo "Package $PACKAGE_NAME not found!"
     return 1
   fi
 
   DOWNLOAD_LINK="${MIRROR}${FILENAME}"
-  BASENAME=$(basename $FILENAME)
-  if [ -e $BASENAME ]; then
+  BASENAME=$(basename "$FILENAME")
+  if [ -e "$BASENAME" ]; then
     echo "File $BASENAME for $PACKAGE_NAME already downloaded."
   else
     if [ $TEST -eq 0 ]; then
-      wget -nv --show-progress -O $BASENAME "$DOWNLOAD_LINK"
+      wget -nv --show-progress -O "$BASENAME" "$DOWNLOAD_LINK"
     else
       echo "Would download $DOWNLOAD_LINK"
       return 0
@@ -140,7 +140,7 @@ function packageDownload {
     return 1
   fi
 
-  SHA256_DL=$(sha256sum $BASENAME | cut -d" " -f1)
+  SHA256_DL=$(sha256sum "$BASENAME" | cut -d" " -f1)
   if [ "$SHA256" != "$SHA256_DL" ]; then
     echo "SHA256 of $PACKAGE_NAME missmatched!"
     echo "$SHA256 != $SHA256_DL"
@@ -199,7 +199,7 @@ function main {
 
   if [ $LOAD_DEPENDS -eq 1 ]; then
     echo "--- detect depends"
-    packageDepends $PACKAGE
+    packageDepends "$PACKAGE"
   fi
 
   echo "--- packages to load: $DOWNLOAD_PACKAGES"
@@ -227,7 +227,7 @@ function main {
   else
     echo "$DL_OK downloads ok"
     echo "$DL_ERR downloads not ok"
-    echo $DL_ERR_PACKAGES
+    echo "$DL_ERR_PACKAGES"
   fi
 }
 

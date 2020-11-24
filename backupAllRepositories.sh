@@ -2,9 +2,9 @@
 # example usage:
 #./backupAllRepositories.sh geek1011
 FOLDER=$(date +%B-%d-%Y_%I-%M-%p)
-rm -rf $FOLDER
-mkdir $FOLDER
-cd $FOLDER
+rm -rf "$FOLDER"
+mkdir "$FOLDER"
+cd "$FOLDER"
 
 USER=$1;
 PAGE=1; 

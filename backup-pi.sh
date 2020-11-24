@@ -7,7 +7,7 @@
 # Email: pietro.marangon@gmail.com
 
 clean_backup() {
-  rm -f ./$FILE
+  rm -f ./"$FILE"
   echo 'Local Backup Removed'
 }
 
@@ -42,7 +42,7 @@ TYPE=1
 d=$(date --iso)
 
 FILE=$FILE"_"$d".tar.gz"
-tar -czvf ./$FILE $DIR
+tar -czvf ./"$FILE" $DIR
 echo 'Tar Complete'
 
 if [ $TYPE -eq 1 ]
