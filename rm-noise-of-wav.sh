@@ -16,8 +16,8 @@ if [ $# -lt 2 ]; then
   exit 1
 fi
 
-$SOX $1 -n trim 0 0.5  noiseprof /tmp/newprofile
-$SOX $1 "$2" noisered /tmp/newprofile
+$SOX "$1" -n trim 0 0.5  noiseprof /tmp/newprofile
+$SOX "$1" "$2" noisered /tmp/newprofile
 rm -f /tmp/newprofile
 
 #xdg-open "$2"

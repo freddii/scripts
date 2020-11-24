@@ -10,4 +10,4 @@
 #Registra uno screencast in mpeg in $HOME/Videos/:
 today=`date '+%Y_%m_%d__%H_%M_%S'`;
 ffmpeg -f x11grab -s 800x600 -i :0.0 $HOME/Videos/screencast$today.mpg
-vlc $HOME/Videos/screencast$today.mpg
+vlc "$HOME"/Videos/screencast"$today".mpg
