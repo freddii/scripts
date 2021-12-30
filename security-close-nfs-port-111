@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#based on https://adminforge.de/linux-allgemein/debian-rpc-port-111-schliessen/
+sudo systemctl stop rpcbind
+sudo systemctl disable rpcbind
+sudo systemctl mask rpcbind
+sudo systemctl stop rpcbind.socket
+sudo systemctl disable rpcbind.socket
+
+#remove tmate
+#install fail2ban
+#bash-completion (nslookup)
