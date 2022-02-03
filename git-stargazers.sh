@@ -12,7 +12,7 @@ echo You have $STARS stargazers on this repository.
 echo
 
 for PAGE in `seq $PAGES`; do
-    curl -sH "Accept: application/vnd.github.v3.star+json" "https://api.github.com/repos/$1/stargazers?per_page=100&page=1"| jq '.[] | .user .login'
+    curl -sH "Accept: application/vnd.github.v3.star+json" "https://api.github.com/repos/$1/stargazers?per_page=100&page=$PAGE"| jq '.[] | .user .login'
 done
 
 #echo
